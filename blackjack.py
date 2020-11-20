@@ -27,11 +27,17 @@ def draw_card(deck):
 def calculate_hand(hand): # takes a list as argument, returns int as sum of cards.
     sum_of_hand = sum(hand)
     if sum_of_hand <= 11:
-        
+        for i in range(len(hand)):
+            if hand[i] == 1:
+                hand[i] = 11
+                break
+    
     elif sum_of_hand > 21:
-        1=11
-    else:
-        continue    
+        for i in range(len(hand)):
+            if hand[i] == 11:
+                hand[i] = 1
+                break
+    sum_of_hand = sum(hand)
     return sum_of_hand
     
     
