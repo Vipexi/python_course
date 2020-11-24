@@ -39,8 +39,9 @@ def fibonacci_normal(mumbers_in_series):
 
 fibonacci_normal(numbers_in_series)
 
+# This hard task is nearly the same as the two other ones. I imported statistics to get the median-function and get the median from the list.
 
-import statistics # This hard task is nearly the same as the two other ones. I imported statistics to get the median-function and get the median from the list.
+import statistics 
 
 numbers_in_series=int(input("How many fibonacci numbers do you want to know?"))
 
