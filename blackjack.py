@@ -18,7 +18,6 @@ def make_a_new_deck():
 print(make_a_new_deck())
 
 def draw_card(deck):
-    
     #print(len(deck))
     card = deck.pop()
     #print(len(deck))
@@ -56,40 +55,42 @@ def ask_if_player_wants_card(player_hand_now):
 # and when we check result we use calculate_hand() function to get result
 # when new card is drawn, put that to the hand, what is now type list
 
-while True:
-    deck = make_a_new_deck()
-    dealer_hand = []
-    player_hand = []
-    dealer_hand.append(draw_card(deck))
-    player_hand.append(draw_card(deck))
-    print(deck)
+if __name__ == "__main__":
+
     while True:
-        print_hands(dealer_hand,player_hand)
-        answer = ask_if_player_wants_card(player_hand)
-        if answer == "yes":
-            player_hand.append(draw_card(deck))
-            
-            if calculate_hand(player_hand) > 21:
+        deck = make_a_new_deck()
+        dealer_hand = []
+        player_hand = []
+        dealer_hand.append(draw_card(deck))
+        player_hand.append(draw_card(deck))
+        print(deck)
+        while True:
+            print_hands(dealer_hand,player_hand)
+            answer = ask_if_player_wants_card(player_hand)
+            if answer == "yes":
+                player_hand.append(draw_card(deck))
+                
+                if calculate_hand(player_hand) > 21:
+                    break
+            elif answer == "no":
                 break
-        elif answer == "no":
+        while True:
+            print_hands(dealer_hand,player_hand)
+            if calculate_hand(player_hand) > 21:
+                print("you went over, you lose")
+                break
+            elif calculate_hand(dealer_hand) < 16:
+                dealer_hand.append(draw_card(deck))
+                
+            elif calculate_hand(dealer_hand) > 21:
+                print("dealer went over, you win")
+                break
+                print("Dealer wins!")
+                break
+            else:
+                print("Player wins!")
+                break
+        new_game = input("Do you want new game, press enter. If you want to end type:no ")
+        if new_game == "no":
             break
-    while True:
-        print_hands(dealer_hand,player_hand)
-        if calculate_hand(player_hand) > 21:
-            print("you went over, you lose")
-            break
-        elif calculate_hand(dealer_hand) < 16:
-            dealer_hand.append(draw_card(deck))
             
-        elif calculate_hand(dealer_hand) > 21:
-            print("dealer went over, you win")
-            break
-            print("Dealer wins!")
-            break
-        else:
-            print("Player wins!")
-            break
-    new_game = input("Do you want new game, press enter. If you want to end type:no ")
-    if new_game == "no":
-        break
-        
