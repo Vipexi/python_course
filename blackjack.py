@@ -5,10 +5,10 @@ import random
 
 
 def make_a_new_deck():
-    deck_of_cards = [i for i in range(52)]
-    for i in range(13):
-        for y in range(4):
-            if i <10:
+    deck_of_cards = [i for i in range(52)] #make a deck that has 52 cards in it
+    for i in range(13): #13 cards for each suit
+        for y in range(4): #4 suits
+            if i <10: #make every card over 10 equal to 10
                 deck_of_cards[i+y*13] = i+1
             elif i >= 10:
                 deck_of_cards[i+y*13] = 10
@@ -22,6 +22,9 @@ def draw_card(deck):
     card = deck.pop()
     #print(len(deck))
     return card
+
+#def split_hand(draw_card):
+ #   if 
 
 def calculate_hand(hand): # takes a list as argument, returns int as sum of cards.
     sum_of_hand = sum(hand)
@@ -55,6 +58,7 @@ def ask_if_player_wants_card(player_hand_now):
 # and when we check result we use calculate_hand() function to get result
 # when new card is drawn, put that to the hand, what is now type list
 
+
 if __name__ == "__main__":
 
     while True:
@@ -85,6 +89,7 @@ if __name__ == "__main__":
             elif calculate_hand(dealer_hand) > 21:
                 print("dealer went over, you win")
                 break
+            elif calculate_hand(dealer_hand) > calculate_hand(player_hand):
                 print("Dealer wins!")
                 break
             else:
