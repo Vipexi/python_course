@@ -13,8 +13,9 @@ def fibonacci_numbers(numbers_in_series):
     if numbers_in_series >= 2: #The if-statement excludes number 0,1
         for i in range(2, numbers_in_series): #The for loop goes through the list in range of 2 to the number with the function was called
             nextnumber = fibonacci_list [i-1] + fibonacci_list[i-2] #This variable sums the two previous numbers together,
-            fibonacci_list.append(nextnumber) # i stands for the order of the number in the list given by The user. 
-            # This appends the variable into the list I made previously.
+            fibonacci_list.append(nextnumber) # i stands for the order of the number in the list given by The user.
+        """fibonacci_list=str(fibonacci_list)     
+        fibonacci_list = fibonacci_list.replace("," , "")""" # This appends the variable into the list I made previously.
     return(fibonacci_list)
     
 
@@ -50,9 +51,11 @@ print(normal)
 
 # This hard task is nearly the same as the two other ones. I imported statistics to get the median-function and get the median from the list.
 
-import statistics 
+ 
 
 # numbers_in_series=int(input("How many fibonacci numbers do you want to know?"))
+
+import statistics
 
 def fibonacci_hard(numbers_in_series):
     fibonacci_list = [0,1]
@@ -75,9 +78,12 @@ def fibonacci_hard(numbers_in_series):
     return(list_of_lists)
     
 hard=fibonacci_hard(30)
-"""hard2=fibonacci_hard(200)"""
 print(hard)
+"""hard2=fibonacci_hard(200)"""
+
 """print(hard2)"""
+
+
 
     
 
