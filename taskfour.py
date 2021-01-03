@@ -3,7 +3,6 @@ from math import sqrt
 
 def ask_from_user(question,valid_answer):
     while True:
-        
         user_input = input(question)
         if user_input in valid_answer:
             break

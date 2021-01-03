@@ -8,25 +8,39 @@
 
 # So I made a function with a list, that discludes number 0,1 because it is something that doesn't need counting
 # and you wouldn't want to know 0 or 1 fibonacci numbers to begin with?
-def fibonacci_numbers(numbers_in_series):
-    fibonacci_list = [0,1]
-    if numbers_in_series >= 2: #The if-statement excludes number 0,1
-        for i in range(2, numbers_in_series): #The for loop goes through the list in range of 2 to the number with the function was called
-            nextnumber = fibonacci_list [i-1] + fibonacci_list[i-2] #This variable sums the two previous numbers together,
-            fibonacci_list.append(nextnumber) # i stands for the order of the number in the list given by The user.
-        """fibonacci_list=str(fibonacci_list)     
-        fibonacci_list = fibonacci_list.replace("," , "")""" # This appends the variable into the list I made previously.
-    return(fibonacci_list)
+if __name__ == "__main__":
+
+    filename = "fibonacci_series_no_commas.txt"
+    try:
+        file_to_write = open(filename,"a")
+
+    except:
+        print("cannot open file")
+    
+    file_to_write.write("Fibonacci series from 1 to 100:\n")
+
+    def fibonacci_numbers(numbers_in_series):
+        fibonacci_list = [1]
+        if numbers_in_series >= 1: #The if-statement excludes number 0,1
+            for i in range(1,numbers_in_series): #The for loop goes through the list in range of 2 to the number with the function was called
+                nextnumber = fibonacci_list [i-1] + fibonacci_list[i-2] #This variable sums the two previous numbers together,
+                fibonacci_list.append(nextnumber) # i stands for the order of the number in the list given by The user.
+            """fibonacci_list=str(fibonacci_list)     
+            fibonacci_list = fibonacci_list.replace("," , "") # This appends the variable into the list I made previously."""
+        return(fibonacci_list)
+
+    number = 0
+    x = range(1, 101)
+    for i in x:
+        number += 1
+        print("Series until",i, fibonacci_numbers(number))
+        file_to_write.write(f"Series until {i} {fibonacci_numbers(number)}\n")
     
 
-easy=fibonacci_numbers(30) #Lastly made a variable of the function and print it
-"""easy2=fibonacci_numbers(200)"""
-print(easy)
-"""print(easy2)"""
 
 # In the normal task I used the same format as easy until I made a new a list
 
-"""numbers_in_series=int(input("How many fibonacci numbers do you want to know?"))"""
+"""numbers_in_series=int(input("How many fibonacci numbers do you want to know?"))
 
 def fibonacci_normal(numbers_in_series):
     fibonacci_list = [0,1]
@@ -45,9 +59,9 @@ def fibonacci_normal(numbers_in_series):
     
 
 normal=fibonacci_normal(30)
-"""normal2=fibonacci_numbers(200)"""
+normal2=fibonacci_numbers(200)
 print(normal)
-"""print(normal2)"""
+print(normal2)
 
 # This hard task is nearly the same as the two other ones. I imported statistics to get the median-function and get the median from the list.
 
@@ -79,9 +93,9 @@ def fibonacci_hard(numbers_in_series):
     
 hard=fibonacci_hard(30)
 print(hard)
-"""hard2=fibonacci_hard(200)"""
+hard2=fibonacci_hard(200)
 
-"""print(hard2)"""
+print(hard2)"""
 
 
 
