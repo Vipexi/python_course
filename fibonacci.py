@@ -10,7 +10,7 @@
 # and you wouldn't want to know 0 or 1 fibonacci numbers to begin with?
 if __name__ == "__main__":
 
-    filename = "fibonacci_series_no_commas.txt"
+    filename = "fibonacci_series.txt"
     try:
         file_to_write = open(filename,"a")
 
@@ -19,22 +19,22 @@ if __name__ == "__main__":
     
     file_to_write.write("Fibonacci series from 1 to 100:\n")
 
-    def fibonacci_numbers(numbers_in_series):
-        fibonacci_list = [1]
-        if numbers_in_series >= 1: #The if-statement excludes number 0,1
-            for i in range(1,numbers_in_series): #The for loop goes through the list in range of 2 to the number with the function was called
-                nextnumber = fibonacci_list [i-1] + fibonacci_list[i-2] #This variable sums the two previous numbers together,
-                fibonacci_list.append(nextnumber) # i stands for the order of the number in the list given by The user.
-            """fibonacci_list=str(fibonacci_list)     
-            fibonacci_list = fibonacci_list.replace("," , "") # This appends the variable into the list I made previously."""
-        return(fibonacci_list)
+def fibonacci_numbers(numbers_in_series):
+    fibonacci_list = [1]
+    if numbers_in_series >= 1: #The if-statement excludes number 0,1
+        for i in range(1,numbers_in_series): #The for loop goes through the list in range of 2 to the number with the function was called
+            nextnumber = fibonacci_list [i-1] + fibonacci_list[i-2] #This variable sums the two previous numbers together,
+            fibonacci_list.append(nextnumber) # i stands for the order of the number in the list given by The user.
+        """fibonacci_list=str(fibonacci_list)     
+        fibonacci_list = fibonacci_list.replace("," , "") # This appends the variable into the list I made previously."""
+    return(fibonacci_list)
 
-    number = 0
-    x = range(1, 101)
-    for i in x:
-        number += 1
-        print("Series until",i, fibonacci_numbers(number))
-        file_to_write.write(f"Series until {i} {fibonacci_numbers(number)}\n")
+number = 0
+x = range(1, 101)
+for i in x:
+    number += 1
+    print("Series until",i, fibonacci_numbers(number))
+    file_to_write.write(f"Series until {i} {fibonacci_numbers(number)}\n")
     
 
 
