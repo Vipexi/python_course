@@ -1,4 +1,4 @@
-#! /usr/bin/
+#! /usr/bin/python3
 
 answer_from_user = " "
 while True:

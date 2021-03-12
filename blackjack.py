@@ -16,8 +16,6 @@ def make_a_new_deck():
     random.shuffle(deck_of_cards)
     return deck_of_cards
 
-print(make_a_new_deck())
-
 def draw_card(deck):
     #print(len(deck))
     card = deck.pop()
@@ -55,24 +53,26 @@ def ask_if_player_wants_to_split(player_hand_now):
     answer_local = input(question)
     return answer_local
 
+def ask_how_many_credits_player_wants():
+    while True:
+        try:
+            local_answer = int(input("How many credits do you want (5-100) use?"))
+            if local_answer >= 5 and local_answer <=100:
+                return local_answer
+        except:
+            print("not a valid answer, try again")
+
 """def write_to_file(winner,game_ended):
     file_to_write.write(f"winner,{winner},game_ended,{game_ended}player hand,{player_hand},dealer hand,{dealer_hand}\n")
         try:
             file_to_write = open(filename,"a")
         except:
             print("can not open file")"""
-        
-
-# change program. So that player hand, and dealer hand is an array.
-# meaning that when card is drawn it goes to list
-
-# and when we check result we use calculate_hand() function to get result
-# when new card is drawn, put that to the hand, what is now type list
-
 
 if __name__ == "__main__":
 
-        
+    player_credits = ask_how_many_credits_player_wants()
+
     while True:
         deck = make_a_new_deck()
         dealer_hand = []
@@ -132,6 +132,8 @@ if __name__ == "__main__":
         if new_game == "no":
             break
 
+
+    
 """while True:
     print_hands(dealer_hand,player_hand)
     if calculate_hand(player_hand) > 21:
