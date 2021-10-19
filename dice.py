@@ -14,7 +14,7 @@ def second_dice_game(number_of_sides):
 
 second_dice_game(number_of_sides)
 
-#Tonys way
+
 
 
 
